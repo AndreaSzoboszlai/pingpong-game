@@ -17,6 +17,8 @@ namespace PongPongGame
         bool secondPlayerUp;
         bool secondPlayerDown;
         bool paused;
+        int level = 1;
+        int counter = 1;
         int speed = 7;
         int ballx = 5;
         int bally = 5;
@@ -96,37 +98,33 @@ namespace PongPongGame
         {
             Player1Score.Text = "" + score1;
             Player2Score.Text = "" + score2;
+            float progressPercent = (counter % 500) / 500;
+            label3.Text = "Level " + level + ", progress to reach next level: "+ progressPercent;
             Ball.Top -= bally;
             Ball.Left -= ballx;
+            counter++;
 
-
-            /*
-            if (score1 < 5)
+            if ( counter % 500 == 0)
             {
-                if (Player2.Top < 0 || Player2.Top > 455)
-                {
-                    speed = -speed;
-                }
+                level++;
+                ballx -= 3;
+                MessageBox.Show("You got a gift, speed decreased");
+            } else if (counter % 150 == 0)
+            {
+                ballx += 2;
             }
-            else
-            {
-                Player2.Top = Ball.Top + 30;
-            }*/
 
             if (Ball.Left < 0)
             {
                 Ball.Left = 434;
                 ballx = -ballx;
-                ballx -= 2;
-                score2++;
+                //ballx -= 2;
             }
 
             if (Ball.Left + Ball.Width > ClientSize.Width)
             {
                 Ball.Left = 434;
                 ballx = -ballx;
-                ballx += 2;
-                score1++;
             }
 
             if (Ball.Top < 95 || Ball.Top + Ball.Height > 480)
@@ -134,9 +132,16 @@ namespace PongPongGame
                 bally = -bally;
             }
 
-            if (Ball.Bounds.IntersectsWith(Player1.Bounds) || Ball.Bounds.IntersectsWith(Player2.Bounds))
+            if (Ball.Bounds.IntersectsWith(Player1.Bounds))
             {
                 ballx = -ballx;
+                score1++;
+            }
+
+            if (Ball.Bounds.IntersectsWith(Player2.Bounds))
+            {
+                ballx = -ballx;
+                score2++;
             }
 
             if (goUp == true && Player1.Top > 0)
@@ -159,16 +164,16 @@ namespace PongPongGame
                 Player2.Top += 8;
             }
 
-            if (score1 > 10)
+            if (score1 > 25)
             {
                 gameTimer.Stop();
-                MessageBox.Show("You won!");
+                MessageBox.Show("First Player won! Your score is " + score1);
             }
 
-            if (score2 > 10)
+            if (score2 > 25)
             {
                 gameTimer.Stop();
-                MessageBox.Show("You Lost!");
+                MessageBox.Show("Second Player won! Your score is " + score2);
             }
         }
 

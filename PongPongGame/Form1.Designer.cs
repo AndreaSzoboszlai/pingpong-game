@@ -38,6 +38,7 @@
             this.Player1Score = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
@@ -92,7 +93,7 @@
             this.Player1Score.BackColor = System.Drawing.Color.Transparent;
             this.Player1Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Player1Score.ForeColor = System.Drawing.Color.White;
-            this.Player1Score.Location = new System.Drawing.Point(272, 647);
+            this.Player1Score.Location = new System.Drawing.Point(326, 37);
             this.Player1Score.Name = "Player1Score";
             this.Player1Score.Size = new System.Drawing.Size(49, 32);
             this.Player1Score.TabIndex = 4;
@@ -104,7 +105,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(79, 647);
+            this.label1.Location = new System.Drawing.Point(143, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(177, 29);
             this.label1.TabIndex = 5;
@@ -122,6 +123,18 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Player2 Score";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(464, 672);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 29);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Level 1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -130,6 +143,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1032, 720);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Player1Score);
@@ -161,6 +175,7 @@
         private System.Windows.Forms.Label Player1Score;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
