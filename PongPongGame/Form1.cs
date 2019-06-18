@@ -98,8 +98,8 @@ namespace PongPongGame
         {
             Player1Score.Text = "" + score1;
             Player2Score.Text = "" + score2;
-            float progressPercent = (counter % 500) / 500;
-            label3.Text = "Level " + level + ", progress to reach next level: "+ progressPercent;
+            double progressPercent = ((counter % 500) / (double)500)  * 100;
+            label3.Text = "Level " + level + ", progress to reach next level: "+ progressPercent + " %";
             Ball.Top -= bally;
             Ball.Left -= ballx;
             counter++;
