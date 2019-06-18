@@ -16,6 +16,7 @@ namespace PongPongGame
         bool goUp;
         bool secondPlayerUp;
         bool secondPlayerDown;
+        bool paused;
         int speed = 7;
         int ballx = 5;
         int bally = 5;
@@ -48,6 +49,23 @@ namespace PongPongGame
             if (e.KeyCode == Keys.W)
             {
                 secondPlayerUp = true;
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+
+            if (e.KeyCode == Keys.Space)
+            {
+                gameTimer.Enabled = false;
+                paused = true;
+            }
+
+            if (e.KeyCode != Keys.Space)
+            {
+                gameTimer.Enabled = true;
+                paused = false;
             }
         }
 
