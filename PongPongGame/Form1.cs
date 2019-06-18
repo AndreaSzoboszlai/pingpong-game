@@ -14,6 +14,8 @@ namespace PongPongGame
     {
         bool goDown;
         bool goUp;
+        bool secondPlayerUp;
+        bool secondPlayerDown;
         int speed = 7;
         int ballx = 5;
         int bally = 5;
@@ -33,9 +35,19 @@ namespace PongPongGame
                 goDown = true;
             }
 
+            if (e.KeyCode == Keys.S)
+            {
+                secondPlayerDown = true;
+            }
+
             if (e.KeyCode == Keys.Up)
             {
                 goUp = true;
+            }
+
+            if (e.KeyCode == Keys.W)
+            {
+                secondPlayerUp = true;
             }
         }
 
@@ -45,9 +57,20 @@ namespace PongPongGame
             {
                 goUp = false;
             }
+
+            if (e.KeyCode == Keys.S)
+            {
+                secondPlayerDown = false;
+            }
+
             if (e.KeyCode == Keys.Down)
             {
                 goDown = false;
+            }
+
+            if (e.KeyCode == Keys.W)
+            {
+                secondPlayerUp = false;
             }
         }
 
@@ -57,8 +80,9 @@ namespace PongPongGame
             Player2Score.Text = "" + score2;
             Ball.Top -= bally;
             Ball.Left -= ballx;
-            Player2.Top += speed;
 
+
+            /*
             if (score1 < 5)
             {
                 if (Player2.Top < 0 || Player2.Top > 455)
@@ -69,7 +93,7 @@ namespace PongPongGame
             else
             {
                 Player2.Top = Ball.Top + 30;
-            }
+            }*/
 
             if (Ball.Left < 0)
             {
@@ -102,9 +126,19 @@ namespace PongPongGame
                 Player1.Top -= 8;
             }
 
+            if (secondPlayerUp == true && Player2.Top > 0)
+            {
+                Player2.Top -= 8;
+            }
+
             if (goDown == true && Player1.Top < 450)
             {
                 Player1.Top += 8;
+            }
+
+            if (secondPlayerDown == true && Player2.Top < 450)
+            {
+                Player2.Top += 8;
             }
 
             if (score1 > 10)
